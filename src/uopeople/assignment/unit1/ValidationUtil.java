@@ -1,3 +1,4 @@
+package uopeople.assignment.unit1;
 /**
  * Utility class for validation-related methods.
  * Provides methods to validate words and characters based on specific rules.

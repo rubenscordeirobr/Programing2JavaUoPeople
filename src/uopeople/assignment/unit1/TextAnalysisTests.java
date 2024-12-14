@@ -1,3 +1,4 @@
+package uopeople.assignment.unit1;
 /**
  * Comprehensive test suite for the TextAnalysis class.
  * This class leverages modern Java features, such as streams, to validate the

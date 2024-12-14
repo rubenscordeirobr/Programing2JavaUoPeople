@@ -1,3 +1,4 @@
+package uopeople.assignment.unit1;
 /**
  * The Main class serves as the entry point for the TextAnalysis application.
  * It provides a user interface to input an essay, perform text analysis,

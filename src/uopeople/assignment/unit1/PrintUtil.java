@@ -1,3 +1,4 @@
+package uopeople.assignment.unit1;
 /**
  * The PrintUtil class provides utility methods for printing messages to the console
  * with colored text to indicate success or failure. It uses ANSI escape codes to
