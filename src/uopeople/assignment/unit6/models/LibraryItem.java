@@ -19,10 +19,11 @@ import uopeople.assignment.unit6.enums.EnumDescription;
  * - Provides compile-time type safety, ensuring that the genre matches the
  * expected type.
  * 
- * @param <TGenre> The type of genre for the library item, which must implement
- *                 EnumDescription.
+ * @param <TGenre> The type of genre for the library item, which must be an
+ *                 enumeration (`enum`) and implement the `EnumDescription`
+ *                 interface.
  */
-public abstract class LibraryItem<TGenre extends EnumDescription> extends LibraryItemBase {
+public abstract class LibraryItem<TGenre extends Enum<TGenre> & EnumDescription> extends LibraryItemBase {
 
     // The genre of the library item, using the generic type TGenre
     private TGenre genre;
@@ -65,10 +66,10 @@ public abstract class LibraryItem<TGenre extends EnumDescription> extends Librar
         return this.genre.getName();
     }
 
-     /**
+    /**
      * Gets the description of the genre.
      * 
-     * Uses the generic type TGenre's implementation of `EnumDescription` 
+     * Uses the generic type TGenre's implementation of `EnumDescription`
      * to retrieve the description of the genre.
      * 
      * @return The description of the genre.
