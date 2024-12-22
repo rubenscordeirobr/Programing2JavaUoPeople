@@ -48,6 +48,4 @@ public enum CatalogType  implements EnumDescription
     public String toString() {
         return this.name;
     }
-
-    
 }
