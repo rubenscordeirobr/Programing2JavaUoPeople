@@ -25,3 +25,6 @@ replay_pid*
 
 docs/
 *.pdf
+*.mp4
+*.docx
+.vs
