@@ -37,6 +37,16 @@ public class PrintUtil {
         System.out.println(ANSI_GREEN + message + ANSI_RESET);
     }
 
+    
+    /**
+     * Prints a user input message to the console in yellow text.
+     *
+     * @param message the user input message to be printed
+     */
+    public static void printInputUserMessage(String message) {
+        System.out.println(ANSI_YELLOW + message + ANSI_RESET);
+    }
+
     /**
      * Prints a message with green, yellow, and blue colors in a single output.
      *
