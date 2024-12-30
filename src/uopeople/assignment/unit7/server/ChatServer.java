@@ -4,12 +4,12 @@
  * Author: Rubens Cordeiro
  */
 
- package uopeople.assignment.unit7.server;
+package uopeople.assignment.unit7.server;
 
- import java.io.*;
- import java.net.*;
- import java.util.*;
- import java.util.function.Consumer;
+import java.io.*;
+import java.net.*;
+import java.util.*;
+import java.util.function.Consumer;
 
 import uopeople.assignment.unit7.shared.ChatConfigurations;
 import uopeople.assignment.unit7.shared.LogEvent;

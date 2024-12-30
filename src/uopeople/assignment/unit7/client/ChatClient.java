@@ -4,18 +4,17 @@
  * Author:  Rubens Cordeiro
  */
 
-
 package uopeople.assignment.unit7.client;
 
 import java.io.*;
 import java.net.*;
 import java.util.function.Consumer;
 
-import uopeople.assignment.unit7.*;
 import uopeople.assignment.unit7.shared.ChatCommands;
 import uopeople.assignment.unit7.shared.ChatServerStatus;
 import uopeople.assignment.unit7.shared.LogEvent;
 import uopeople.assignment.unit7.shared.Logger;
+
 /**
  * Represents a client for connecting to the chat server.
  * Handles sending and receiving messages.
@@ -53,8 +52,8 @@ public class ChatClient {
      * Initializes the ChatClient with server details and a nickname.
      *
      * @param serverAddress the server's address
-     * @param serverPort the server's port
-     * @param nickname the client's nickname
+     * @param serverPort    the server's port
+     * @param nickname      the client's nickname
      */
     public ChatClient(String serverAddress, int serverPort, String nickname) {
 
