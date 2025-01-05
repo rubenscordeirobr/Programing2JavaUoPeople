@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Import necessary JavaFX and custom components -->
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.control.ListView?>
+
+
+<VBox xmlns="http://javafx.com/javafx"
+    xmlns:fx="http://javafx.com/fxml"
+    alignment="CENTER" spacing="20"
+    fx:id="mainContainer"
+    fx:controller="uopeople.assignment.unit8.MainWindowController">
+
+    <!-- Add padding around the VBox -->
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20" />
+    </padding>
+
+    <!-- Define reusable components -->
+    <fx:define>
+        <!-- ToggleGroup for temperature unit selection -->
+        <ToggleGroup fx:id="temperatureGroup" />
+    </fx:define>
+
+
+    <!-- Top-Right HBox: Contains app title, temperature toggle buttons, and city change button -->
+    <HBox alignment="TOP_RIGHT" spacing="20">
+        <padding>
+            <Insets top="10" right="10" />
+        </padding>
+
+        <!-- App Title -->
+        <Text
+            fill="#ffffff"
+            text="UoPeople Weather App"
+            style="-fx-font-size: 18px; -fx-font-weight: bold;">
+
+        </Text>
+
+        <!-- Temperature toggle buttons -->
+        <RadioButton text="°C"
+            fx:id="radioCelsius" toggleGroup="$temperatureGroup"
+            selected="true"
+            style="-fx-text-fill: white;  
+                   -fx-font-size: 16px;"
+        />
+        <RadioButton text="°F" fx:id="radioFahrenheit" toggleGroup="$temperatureGroup"
+            style="-fx-text-fill: white;  
+                   -fx-font-size: 16px;" />
+
+        <!-- Button to open the "Change City" dialog -->
+        <Button text="Change City"
+            fx:id="buttonSettings"
+            onAction="#handleChangeCity" />
+
+
+    </HBox>
+
+    <!-- City Name Display -->
+    <Text
+        fill="#ffffff"
+        text="Guarapuava"
+        fx:id="labelCity">
+        <font>
+            <Font name="System Bold" size="36.0" />
+        </font>
+    </Text>
+
+    <!-- Current Weather Information -->
+    <HBox alignment="CENTER" spacing="20">
+
+        <!-- Current temperature display -->
+        <Text
+            fill="#ffffff"
+            text="25°C" fx:id="labelTemperature"
+            style="-fx-font-weight: bold; 
+                   -fx-font-size: 48px;">
+
+        </Text>
+
+        <!-- Weather icon display -->
+        <ImageView fitHeight="100" fitWidth="100" pickOnBounds="true" preserveRatio="true"
+            fx:id="weatherIcon">
+
+            <!-- Default weather icon -->
+            <image>
+                <Image
+                    url="@/uopeople/assignment/unit8/resources/images/weather_icons/unknown.png" />
+            </image>
+        </ImageView>
+
+        <VBox>
+        </VBox>
+    </HBox>
+
+    <!-- Weather Description -->
+    <Text
+        fill="#ffffff"
+        text="Loading..."
+        style="-fx-font-size: 18px;"
+        fx:id="labelWeatherDescription">
+    </Text>
+
+    <!-- Additional Weather Details -->
+    <HBox alignment="CENTER" spacing="10"
+        style="-fx-text-fill: white;  
+                -fx-font-size: 16px;">
+
+        <Text text="Humidity: N/A"
+            style="-fx-fill: white;"
+            fx:id="labelHumidity">
+
+        </Text>
+
+        <Text text="Wind: N/A"
+            style="-fx-fill: white;"
+            fx:id="labelWind">
+
+        </Text>
+        <Text
+            text="Pressure: N/A"
+            style="-fx-fill: white;"
+            fx:id="labelPressure">
+
+        </Text>
+
+        <Text
+            text="Visibility: N/A"
+            style="-fx-fill: white;"
+            fx:id="labelVisibility">
+
+        </Text>
+    </HBox>
+
+    <!-- Forecast List View -->
+    <ListView fx:id="forecastListView"
+        xmlns:fx="http://javafx.com/fxml"
+        orientation="HORIZONTAL"
+        style="-fx-background-color: transparent;" prefHeight="150">
+
+        <!-- Initialize with an empty list -->
+        <items>
+            <FXCollections fx:factory="observableArrayList" />
+        </items>
+    </ListView>
+</VBox>
+ 
