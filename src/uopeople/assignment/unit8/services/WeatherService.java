@@ -15,14 +15,33 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.nio.file.Path;
 
+/**
+ * The WeatherService class provides methods for retrieving real-time weather
+ * data,
+ * including current weather, forecasts, and historical data. It integrates with
+ * the WeatherStack API to fetch and parse the data. In debug mode, it uses
+ * local
+ * mock data to avoid redundant API calls.
+ */
 public class WeatherService {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 
+    /**
+     * Default constructor for WeatherService.
+     * Initializes the ObjectMapper for JSON parsing.
+     */
     public WeatherService() {
 
     }
 
+    /**
+     * Retrieves the current weather data for a specified city.
+     * 
+     * @param city the name of the city to retrieve weather data for
+     * @return a Current object containing current weather details, or null if the
+     *         API call fails
+     */
     public Current getWeatherCurrent(String city) {
 
         WeatherResponse response = this.get(ApiEndpoints.CURRENT, city, null).orElse(null);
@@ -32,6 +51,13 @@ public class WeatherService {
         return response.getCurrent();
     }
 
+    /**
+     * Retrieves a short-term weather forecast for a specified city.
+     * 
+     * @param city the name of the city to retrieve the forecast for
+     * @return a Forecast object containing forecast details, or null if the API
+     *         call fails
+     */
     public Forecast getWeatherForecast(String city) {
         String additionalParams = "forecast_days=1&hourly=1";
         WeatherResponse response = this.get(ApiEndpoints.FORECAST, city, additionalParams).orElse(null);
@@ -41,6 +67,14 @@ public class WeatherService {
         return response.getForecast();
     }
 
+    /**
+     * Retrieves historical weather data for a specified city and date.
+     * 
+     * @param city the name of the city
+     * @param date the LocalDate for which to retrieve historical data
+     * @return a Historical object containing historical weather details, or null if
+     *         the API call fails
+     */
     public Historical getWeatherHistorical(String city, LocalDate date) {
         // Format date to "yyyy-MM-dd"
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -53,6 +87,16 @@ public class WeatherService {
         return response.getHistorical();
     }
 
+    /**
+     * Helper method to retrieve weather data from the API.
+     * 
+     * @param endpoint         the API endpoint (e.g., CURRENT, FORECAST,
+     *                         HISTORICAL)
+     * @param city             the name of the city
+     * @param additionalParams optional query parameters for the API request
+     * @return an Optional<WeatherResponse> containing the parsed response, or empty
+     *         if an error occurs
+     */
     private Optional<WeatherResponse> get(ApiEndpoints endpoint, String city, String additionalParams) {
         try {
 
@@ -71,6 +115,15 @@ public class WeatherService {
 
     }
 
+    /**
+     * Makes an HTTP request to the API or retrieves mock data in debug mode.
+     * 
+     * @param endpoint         the API endpoint
+     * @param city             the name of the city
+     * @param additionalParams optional query parameters
+     * @return the raw response body as a String
+     * @throws RuntimeException if the request fails
+     */
     private String getResponse(ApiEndpoints endpoint, String city, String additionalParams) {
 
         try {
@@ -114,6 +167,15 @@ public class WeatherService {
         }
     }
 
+    /**
+     * Parses the JSON response from the API into a WeatherResponse object.
+     * Handles API errors and substitutes mock data if necessary.
+     * 
+     * @param responseBody the raw JSON response
+     * @param endpoint     the API endpoint
+     * @return a WeatherResponse object or null if parsing fails
+     * @throws RuntimeException if parsing fails or the API returns an error
+     */
     private WeatherResponse parseWeatherResponse(String responseBody, ApiEndpoints endpoint) {
 
         try {
