@@ -1,0 +1,16 @@
+
+#@environment = dev
+
+## Current Weather
+GET http://api.weatherstack.com/current?access_key={{WEATHERSTACK_API_KEY}}&query=Guarapuava
+
+
+### Historical Weather
+GET http://api.weatherstack.com/current?access_key={{WEATHERSTACK_API_KEY}}&query=Guarapuava
+
+### Forecast Weather
+GET http://api.weatherstack.com/forecast?access_key={{WEATHERSTACK_API_KEY}}&forecast_days=1&hourly=1&query=Guarapuava
+
+
+### Historical Weather
+GET https://api.weatherstack.com/historical?access_key={{WEATHERSTACK_API_KEY}}&query=Guarapuava&historical_date=2025-01-01&hourly=1
