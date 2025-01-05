@@ -69,7 +69,7 @@ This is a simple client-server chat application implemented in Java. The applica
 - **`uopeople.assignment.unit7.server`**: Contains server-side logic including `ChatServer`, `ClientConnection`, and `Main` classes.
 - **`uopeople.assignment.unit7.client`**: Contains client-side logic including `ChatClient` and `Main` classes.
 - **`uopeople.assignment.unit7.utils`**: Contains utility classes for input handling (`InputUtil`), message formatting (`PrintUtil`), and more.
-- **`uopeople.assignment.unit7`**: Contains shared resources such as `ChatCommands`, `ChatConfigurations`, `Logger`, and `PrivateMessage` classes.
+- **`uopeople.assignment.unit7.shared`**: Contains shared resources such as `ChatCommands`, `ChatConfigurations`, `Logger`, and `PrivateMessage` classes.
 
 ### Key Classes
 
